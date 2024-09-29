@@ -8,13 +8,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
 public class TestClass {
     ChromeDriver chromeDriver;
 
     @BeforeMethod
     public void Setup() {
-        //set update data
+        // set update data
         WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
 
@@ -31,7 +30,7 @@ public class TestClass {
     public void run1() {
         System.out.println("hehe");
         Assert.assertEquals(1, 1, "1 not equals to 2");
-        //body testscript
+        // body testscript
     }
 
     @AfterMethod
@@ -39,10 +38,11 @@ public class TestClass {
         System.out.println("hmhm");
         chromeDriver.quit();
     }
-    private void sleeps(int time){
+
+    private void sleeps(int time) {
         try {
             Thread.sleep(time);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
