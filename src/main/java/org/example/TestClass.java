@@ -10,27 +10,41 @@ import org.testng.annotations.Test;
 
 
 public class TestClass {
+    ChromeDriver chromeDriver;
+
     @BeforeMethod
-    public void run3(){
-        System.out.println("haha");
+    public void Setup() {
         //set update data
         WebDriverManager.chromedriver().setup();
-        ChromeDriver chromeDriver = new ChromeDriver();
-        chromeDriver.get("https://www.google.com.vn/?hl=vi");
+        chromeDriver = new ChromeDriver();
+
     }
+
     @Test
     public void run() {
         System.out.println("hihi");
+        chromeDriver.get("https://www.google.com.vn/?hl=vi");
+        sleeps(5000);
     }
+
     @Test
     public void run1() {
         System.out.println("hehe");
-        Assert.assertEquals(1,1,"1 not equals to 2");
+        Assert.assertEquals(1, 1, "1 not equals to 2");
         //body testscript
     }
 
     @AfterMethod
-    public void run4(){
+    public void CleanUp() {
         System.out.println("hmhm");
+        chromeDriver.quit();
+    }
+    private void sleeps(int time){
+        try {
+            Thread.sleep(time);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 }
