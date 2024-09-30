@@ -29,6 +29,7 @@ public class TestClass {
     @Test
     public void run1() {
         System.out.println("hehe");
+        System.out.println("hi everyone");
         Assert.assertEquals(1, 1, "1 not equals to 2");
         // body testscript
     }
